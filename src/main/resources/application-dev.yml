@@ -1,0 +1,56 @@
+#Lệnh build: mvn clean package -P test, dev, prod
+#Lệnh run: java -jar target/tên_file_đuôi_jar
+#server:
+#  port: 8080
+spring:
+  config:
+    active:
+      on-profile: dev
+  devtools:
+    add-properties: true
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/postgres}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:password}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+  redis:
+    host: localhost
+    port: 6379
+  kafka:
+    bootstrap-server: localhost:29092
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+openapi:
+  service:
+    title: ${API_TITLE:DUMMY-API-TITLE}
+    version: 1.0.0
+    description: API Service Description
+    serverUrl: http://localhost:${server.port}
+    serverName: Server test
+    api-docs: api-service
+
+jwt:
+  expiryHour: 1
+  expiryDay: 14
+  secretKey: d84b6c99abcf9a1e53ea8cd2bdaa0e4c9d5e3eebdefdab08d07917c7277ca56e
+  refreshKey: 5kMQSZWBxuyD0WUn3vgrRYkVY3FzfGS8eIsWAyRq5U0=
+  resetKey: gs2Ab6lGtPtxyxXYC8RLcLzesuTY1ny8QnInQmU9mak=
+
+
+#open:
+#  api:
+#    title: ${API_TITLE:DUMMY-API-TITLE}
+#    version: v1.0.0
+#    description: API Service Description
+#    serverUrl: http://localhost:${server.port}
+#    serverName: Server test

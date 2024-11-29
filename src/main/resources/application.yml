@@ -1,0 +1,7 @@
+server:
+  port: 80
+spring:
+  application:
+    name: tay-java
+  profiles:
+    active: @spring.profiles.active@

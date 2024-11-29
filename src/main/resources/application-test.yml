@@ -1,0 +1,31 @@
+#Lệnh build: mvn clean package -P test, dev, prod
+#Lệnh run: java -jar target/tên_file_đuôi_jar
+
+#server:
+#  port: 8081
+spring:
+  config:
+    active:
+      on-profile: test
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+openapi:
+  service:
+    title: API document
+    version: 1.0.0
+    description: API Service Description
+    serverUrl: ${API_URL:DUMMY-API-URL}
+    serverName: Server test
+    api-docs: api-service
+
+#open:
+#  api:
+#    title: API document
+#    version: v1.0.0
+#    description: API Service Description
+#    serverUrl: http://localhost:${server.port}
+#    serverName: Server test
